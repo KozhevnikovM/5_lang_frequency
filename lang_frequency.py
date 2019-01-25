@@ -10,11 +10,11 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(list_of_words):
-    words = calc_words(list_of_words)
+    words = words_counter(list_of_words)
     return sorted(words.keys(), reverse=True, key=words.get)
 
 
-def calc_words(any_text: str):
+def words_counter(any_text: str):
     counter = Counter()
     words = any_text.strip().split()
     for word in words:
