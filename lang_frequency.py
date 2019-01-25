@@ -24,9 +24,9 @@ def calc_words(any_text: str):
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
-        text = sys.argv[1]
+        file_path = sys.argv[1]
     else:
         print('Укажите путь к файлу')
-    text = load_data('text.txt')
-    for i in get_most_frequent_words(text)[:10]:
+    text_as_str = load_data(file_path)
+    for i in get_most_frequent_words(text_as_str)[:10]:
         print(i)
