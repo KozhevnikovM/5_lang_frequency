@@ -9,8 +9,8 @@ def load_data(filepath):
         return f.read().strip()
 
 
-def get_most_frequent_words(text):
-    words = calc_words(text)
+def get_most_frequent_words(list_of_words):
+    words = calc_words(list_of_words)
     return sorted(words.keys(), reverse=True, key=words.get)
 
 
