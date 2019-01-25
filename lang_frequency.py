@@ -28,5 +28,5 @@ if __name__ == '__main__':
     else:
         print('Укажите путь к файлу')
     text_as_str = load_data(file_path)
-    for i in get_most_frequent_words(text_as_str)[:10]:
-        print(i)
+    for word in get_most_frequent_words(text_as_str)[:10]:
+        print(word)
