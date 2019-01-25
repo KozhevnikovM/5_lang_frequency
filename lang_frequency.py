@@ -14,9 +14,9 @@ def get_most_frequent_words(list_of_words):
     return sorted(words.keys(), reverse=True, key=words.get)
 
 
-def calc_words(text):
+def calc_words(any_text: str):
     counter = Counter()
-    words = text.strip().split()
+    words = any_text.strip().split()
     for word in words:
         counter[word] += 1
     return counter
