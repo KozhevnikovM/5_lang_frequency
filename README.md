@@ -1,6 +1,6 @@
 # Frequency Analysis of Words
 
-The script return 10 most frequency words in a text
+The script counts the frequency of words in any text. And displays the 10 most frequent words
 
 # System requirements
 
