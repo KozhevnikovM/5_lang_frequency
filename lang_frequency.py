@@ -4,29 +4,27 @@ from collections import Counter
 
 def load_data(filepath):
     if not os.path.exists(filepath):
-        return 'File Not Found'
-    with open(filepath, 'r', encoding='utf8') as f:
-        return f.read().strip()
+        return None
+    with open(filepath, 'r', encoding='utf8') as file:
+        return file.read().strip()
 
 
-def get_most_frequent_words(list_of_words):
-    words = words_counter(list_of_words)
-    return sorted(words.keys(), reverse=True, key=words.get)
+def get_most_frequent_words(any_text):
+    words = any_text.split()
+    return Counter(words).most_common()[:10]
 
-
-def words_counter(any_text: str):
-    counter = Counter()
-    words = any_text.strip().split()
-    for word in words:
-        counter[word] += 1
-    return counter
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
+    try:
         file_path = sys.argv[1]
-    else:
+    except IndexError:
         print('Укажите путь к файлу')
+
     text_as_str = load_data(file_path)
-    for word in get_most_frequent_words(text_as_str)[:10]:
-        print(word)
+
+    if text_as_str is None:
+        exit('File not found')
+
+    for word in get_most_frequent_words(text_as_str):
+        print(word[0])
